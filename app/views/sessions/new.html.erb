@@ -1,0 +1,28 @@
+<div class="container">
+  <div class="row flex-center min-vh-100 py-6">
+    <div class="col-sm-10 col-md-8 col-lg-6 col-xl-5 col-xxl-4">
+      <div class="card">
+        <div class="card-body p-4 p-sm-5 text-center">
+          <h5 class="mb-4">Entrar</h5>
+          <%= render "shared/messages" %>
+          <%= form_for :user, url: sessions_path, method: :post do |form| %>
+            <div class="mb-3">
+              <%= form.email_field :email, class: "form-control",
+                                           placeholder: "E-mail",
+                                           label: false,
+                                           autofocus: true %>
+            </div>
+            <div class="mb-3">
+              <%= form.password_field :password, class: "form-control",
+                                                 placeholder: "Senha",
+                                                 label: false %>
+            </div>
+            <div class="mb-3">
+              <%= form.submit "Entrar", class: "btn btn-primary d-block w-100 mt-3" %>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

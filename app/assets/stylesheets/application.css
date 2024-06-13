@@ -1,1 +1,5 @@
 /* Application styles */
+.pagination a,
+.pagination span {
+  padding: 2px;
+}

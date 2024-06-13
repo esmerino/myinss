@@ -1,0 +1,7 @@
+<% flash.each do |name, msg| %>
+  <div class="alert alert-<%= name.to_s == "notice" ? "success" : "danger" %> border-2 d-flex align-items-center my-2">
+    <p class="mb-0 flex-1">
+      <%= msg %>
+    </p>
+  </div>
+<% end %>

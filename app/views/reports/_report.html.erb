@@ -1,0 +1,36 @@
+<div class="d-flex flex-column gap-2 p-3">
+  <%= pie_chart(report_data.chart_data) %>
+</div>
+<% report_data.salary_range_data.each do |salary_range| %>
+  <div class="d-flex flex-column gap-2 p-3">
+    <div class="mb-2 position-relative">
+      <div class="row bg-white dark__bg-1100 m-0 p-2 rounded-3 shadow-sm">
+        <div class="col-md-5 col-sm-12 p-0">
+          <div class="d-flex flex-row">
+            <div class="d-flex flex-column justify-content-center">
+              <h5 class="text-800 mb-3 p-2"><%= salary_range[:title] %></h5>
+              <table class="table table-sm">
+                <thead>
+                  <tr>
+                    <th scope="col">Nome</th>
+                    <th scope="col">Salário</th>
+                    <th scope="col">INSS</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <% salary_range[:bidders].each do |bidder| %>
+                    <tr>
+                      <td><%= bidder.name %></td>
+                      <td><%= number_to_currency(bidder.salary) %></td>
+                      <td><%= number_to_currency(bidder.inss_discount) %></td>
+                    </tr>
+                  <% end %>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>

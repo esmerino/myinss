@@ -1,0 +1,33 @@
+<%= render "shared/messages" %>
+<div class="col-xxl-12" data-turbo="true">
+  <div class="card">
+    <div class="card-header border-bottom border-200">
+      <div class="row align-align-items-start mb-3">
+        <nav style="--falcon-breadcrumb-divider: '»';" aria-label="breadcrumb">
+          <ol class="breadcrumb fs--1 lh-lg">
+            <li class="breadcrumb-item text-900">Proponentes</li>
+          </ol>
+        </nav>
+      </div>
+      <div class="d-lg-flex justify-content-between">
+        <div class="border-bottom border-200 my-3"></div>
+        <div class="d-flex justify-content-between align-items-center gap-2">
+          <%= link_to new_bidder_path, class: "btn btn-sm btn-primary" do %>
+            <span class="ms-1">Adicionar</span>
+          <% end %>
+        </div>
+      </div>
+    </div>
+    <div class="card-body p-0">
+      <div class="d-flex flex-column gap-2 p-3">
+        <% if @bidders.present? %>
+          <%= render @bidders %>
+        <% else %>
+          <div class="d-flex justify-content-center text-900 p-3">Nada para mostrar</div>
+        <% end %>
+        <%= paginate @bidders, left: 1, right: 3 %>
+      </div>
+    </div>
+    <div class="card-footer"></div>
+  </div>
+</div>

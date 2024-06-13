@@ -1,0 +1,19 @@
+pt-BR:
+  activerecord:
+    models:
+      bidder:
+        one: Proponente
+        other: Proponentes
+    attributes:
+      bidder:
+        name: Nome 
+        cpf: CPF
+        birth_date: Data de nascimento
+        street: Logradouro
+        number: Número
+        neighbourhood: Bairro 
+        city: Cidade
+        state: Estado
+        postcode: CEP
+        telephone: Telefone
+        salary: Salário

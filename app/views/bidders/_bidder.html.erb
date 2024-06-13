@@ -1,0 +1,15 @@
+<div class="mb-2 position-relative">
+  <div class="row bg-white dark__bg-1100 m-0 p-2 rounded-3 shadow-sm">
+    <div class="col-md-5 col-sm-12 p-0">
+      <div class="d-flex flex-row">
+        <div class="d-flex flex-column justify-content-center">
+          <p class="fw-semi-bold mb-1 text-900">
+            <%= link_to bidder.name, edit_bidder_path(bidder), class: "text-900 text-decoration-none stretched-link" %>
+          </p>
+          <h6 class="text-800 mb-1">Salário: <%= number_to_currency(bidder.salary) %></h6>
+          <h6 class="text-800 mb-1">Desconto do INSS: <%= number_to_currency(bidder.inss_discount) %></h6>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -8,6 +8,7 @@ require "minitest/autorun"
 module ActiveSupport
   class TestCase
     include FactoryBot::Syntax::Methods
+    include ActionView::Helpers::NumberHelper
     # Run tests in parallel with specified workers
     parallelize(workers: :number_of_processors)
 

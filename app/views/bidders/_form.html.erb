@@ -1,0 +1,93 @@
+<%= render "shared/messages" %>
+<%= form_with(model: bidder) do |form| %>
+  <div class="card mb-3">
+    <div class="card-header">
+      <div class="row align-items-center">
+        <h5 class="col card-title mb-0">
+          <%= content_for(:title) %>
+        </h5>
+          <div class="col-auto">
+            <button class="top-submit btn btn-primary btn-sm">
+              Salvar
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card mb-3">
+      <div class="card-body rounded-3" id="card-bidder-body">
+        <div class="row">
+          <div class="col-md-3 mb-3">
+            <%= form.text_field :name, autofocus: true, class:"form-control" %>
+          </div>
+          <div class="col-md-3 mb-3">
+            <%= form.text_field :cpf, class:"form-control" %>
+          </div>
+          <div class="col-md-3 mb-3">
+            <%= form.date_field :birth_date, class:"form-control" %>
+          </div>
+          <div class="col-md-3 mb-3">
+            <%= form.text_field  :telephone, class:"form-control" %>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-4 mb-3">
+            <%= form.text_field :street, class:"form-control" %>
+          </div>
+          <div class="col-md-4 mb-3">
+            <%= form.text_field :number, class:"form-control" %>
+          </div>
+          <div class="col-md-4 mb-3">
+            <%= form.text_field :neighbourhood, class:"form-control" %>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-4 mb-3">
+            <%= form.text_field :city, class:"form-control" %>
+          </div>
+          <div class="col-md-4 mb-3">
+            <%= form.text_field :state, class:"form-control" %>
+          </div>
+          <div class="col-md-4 mb-3">
+            <%= form.text_field :postcode, class:"form-control" %>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-4 mb-3">
+            <%= form.text_field :salary, class:"form-control", data: { controller: "input-mask calculator",
+                                                                       input_mask_type_value: :currency,
+                                                                       calculator_target: "salary", 
+                                                                       action: "change->calculator#calculate" } %>
+          </div>
+          <div class="col-md-8 mb-3">
+            <div class="card bg-dark my-3">
+              <div class="card-body p-3">
+                <%= turbo_frame_tag :discount do %>
+                  <%= render "discount", value: bidder.inss_discount %>
+                <% end %>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-body">
+        <div class="row g-2 justify-content-between">
+          <div class="col-auto">
+            <%= link_to "Cancelar", bidders_path, class: "btn btn-falcon-default btn-sm me-2" %>
+
+            <% if @bidder.persisted? %>
+              <%= link_to "Excluir", @bidder, data: { turbo_method: :delete, turbo_confirm: "Tem certeza?" },
+                                    class: "btn btn-falcon-danger btn-sm" %>
+            <% end %>
+          </div>
+
+          <div class="col-auto">
+            <%= form.submit "Salvar", class: "bottom-submit btn btn-primary btn-sm" %>
+          </div>
+        </div>
+      </div>
+    </div>  
+  </div>
+<% end %>

@@ -1,16 +1,24 @@
 <!DOCTYPE html>
-<html>
+<html data-bs-theme="light">
   <head>
     <title>MyInss</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
-    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= stylesheet_link_tag "application", "theme/theme.min", "data-turbo-track": "reload" %>
+    <%= stylesheet_link_tag "https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.0/font/bootstrap-icons.css" %>
     <%= javascript_importmap_tags %>
+    <%= javascript_include_tag "config", nonce: true %>
   </head>
 
   <body>
-    <%= yield %>
+    <main class="main">
+      <div class="container" data-layout="container">
+        <%= render "layouts/navbar" %>
+        <div class="content">
+          <%= yield %>
+        </div>
+      </div>
+    </main>
   </body>
 </html>

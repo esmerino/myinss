@@ -1,0 +1,21 @@
+<div class="col-xxl-12" data-turbo="true">
+  <div class="card">
+    <div class="card-header border-bottom border-200">
+      <div class="row align-align-items-start mb-3">
+        <nav style="--falcon-breadcrumb-divider: '»';" aria-label="breadcrumb">
+          <ol class="breadcrumb fs--1 lh-lg">
+            <li class="breadcrumb-item text-900">Relatórios</li>
+          </ol>
+        </nav>
+      </div>
+    </div>
+    <div class="card-body p-0">
+      <% if ReportData.new.chart_data.present? %>
+        <%= render "report", report_data: ReportData.new %>
+      <% else %>
+        <div class="d-flex justify-content-center text-900 p-3">Nada para mostrar</div>
+      <% end %>
+    </div>
+    <div class="card-footer"></div>
+  </div>
+</div>
