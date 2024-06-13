@@ -1,24 +1,15 @@
-# README
+## Desenvolvimento
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+### Ambiente
 
-Things you may want to cover:
+O projeto está preparado para montar todo o ambiente no VS Code via containers, facilitado pela extensão [Dev Containers](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers).
 
-* Ruby version
+- Instale o WSL (se estiver no Windows)
+- Instale Docker Desktop
+- No VS Code instale a extensão e abra o projeto usando a opção "Dev Containers: Open Folder in Container".
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+### Testes
+Para rodar os testes:
+```sh
+rails test:all
+```
